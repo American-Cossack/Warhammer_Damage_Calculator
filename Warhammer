@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-07-25T14:10:48.763Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" etag="PlarDnh_Z4UBR7946TfX" version="20.1.4" type="github">
+<mxfile host="app.diagrams.net" modified="2022-07-25T14:44:34.192Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.114 Safari/537.36" etag="VImijh-MddC48ZlDgfRz" version="20.1.4" type="github">
   <diagram id="M7-bIhE6-HdWIiT_gE2X" name="Page-1">
     <mxGraphModel dx="1226" dy="1778" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -10,7 +10,7 @@
         <mxCell id="CQs0RprjBdOMlOm-5VsB-2" value="Back End" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="610" y="-660" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="CQs0RprjBdOMlOm-5VsB-3" value="App.js" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="CQs0RprjBdOMlOm-5VsB-3" value="Div" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="70" y="-390" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="CQs0RprjBdOMlOm-5VsB-4" value="Home.js" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
@@ -52,10 +52,10 @@
             <mxPoint x="450" y="-480" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="CQs0RprjBdOMlOm-5VsB-13" value="Test Array.js" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="CQs0RprjBdOMlOm-5VsB-13" value="Preset T, W, S charecteristics" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="430" y="-340" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="CQs0RprjBdOMlOm-5VsB-14" value="Real Array.js" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="CQs0RprjBdOMlOm-5VsB-14" value="Blank, pushable T, W, S characteristics" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="660" y="-330" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="CQs0RprjBdOMlOm-5VsB-15" value="" style="endArrow=none;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.667;entryY=1.008;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="CQs0RprjBdOMlOm-5VsB-14" target="CQs0RprjBdOMlOm-5VsB-11">
