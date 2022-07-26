@@ -7,7 +7,8 @@ db.on("error", console.error.bind(console, "MongoDB connection error:"));
 const main = async () => {
   const atck = [
     {
-      name: "Space Marine Bolter",
+      _id: 1,
+      Name: "Space Marine Bolter",
       Shots_Number: 2,
       BS: 3,
       S: 4,
