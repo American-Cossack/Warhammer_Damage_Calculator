@@ -3,6 +3,7 @@ const { Schema } = require("mongoose");
 
 const Attack = new Schema(
   {
+    _id: { type: Number, required: false },
     Name: { type: String, required: false },
     Shots_Number: { type: Number, required: true },
     BS: { type: Number, required: true },
