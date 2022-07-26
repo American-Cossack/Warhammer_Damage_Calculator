@@ -1,7 +1,7 @@
 const Attack = require("../models/Attacker");
+const Defend = require("../models/Defender");
 const { db } = require("mongodb");
 const getAttacks = async (req, res) => {
-  console.log("banana");
   try {
     const getAttacks = await Attack.find({});
     console.log(getAttacks);
@@ -10,9 +10,19 @@ const getAttacks = async (req, res) => {
     // res.send(objects);
   } catch (error) {
     //status 200 means worked
-    return res.status(500).send(error.mssage);
+    return res.status(500).send(error.message);
     //interchangeable with above
     // throw error;
+  }
+};
+
+const getDefense = async (req, res) => {
+  try {
+    const getDefend = await Defend.find({});
+    console.log(getDefend);
+    return res.json({ getDefend });
+  } catch (error) {
+    returnres.status(500).send(error.message);
   }
 };
 
@@ -21,9 +31,20 @@ const getAttackById = async (req, res) => {
   console.log(Attack);
   try {
     const { id } = req.params;
-    const selectedAttacks = await Attack.findById(req.params.id);
+    const selectedAttacks = await Attack.findById(id);
     return res.status(200).json({ selectedAttacks });
     // res.send(object);
+  } catch (error) {
+    throw error;
+  }
+};
+
+const getDefenseById = async (req, res) => {
+  console.log(Defend);
+  try {
+    const { id } = req.params;
+    const selectedDefense = await Defend.findById(id);
+    return res.status(200).json({ selectedDefense });
   } catch (error) {
     throw error;
   }
@@ -48,21 +69,33 @@ const createAttack = async (req, res) => {
 
 const updateAttack = async (req, res) => {
   try {
-    //making sure have right opbject
-    const objectId = req.params.objectId;
-    //creating a new object that is being updated via the body of the request
-
-    const updatedAttack = await Attack.update(req.body, {
-      //targeting object by id
-      where: { id: objectId },
-      //sending back the updated version
-      returning: true,
-    });
-    res.send(updatedAttack);
-  } catch (error) {
-    throw error;
+    const update2Attack = await Attack.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true }
+    );
+    return res.status(200).json(update2Attack);
+  } catch (err) {
+    return res.status(500).json(err);
   }
 };
+// const updateAttack = async (req, res) => {
+//   try {
+//     //making sure have right object
+//     const { id } = req.params;
+//     //creating a new object that is being updated via the body of the request
+
+//     const updatedAttack = await Attack.updateOne(req.body, {
+//       //targeting object by id
+//       where: { id: id },
+//       //sending back the updated version
+//       returning: true,
+//     });
+//     res.send(updatedAttack);
+//   } catch (error) {
+//     throw error;
+//   }
+// };
 
 // const deleteAttack = async (req, res) => {
 //   try {
@@ -84,4 +117,6 @@ module.exports = {
   createAttack,
   updateAttack,
   //   deleteAttack,
+  getDefense,
+  getDefenseById,
 };

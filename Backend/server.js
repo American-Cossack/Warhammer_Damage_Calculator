@@ -8,6 +8,9 @@ const PORT = process.env.PORT || 3003;
 
 const app = express();
 
+const logger = require("morgan");
+app.use(logger("dev"));
+
 app.use(express.json());
 
 // app.use() middleware here ^ ///////////////////
