@@ -9,13 +9,14 @@ router.get("/object", controllers.getAttacks);
 
 router.get("/defense", controllers.getDefense);
 
-router.get("/defense/:id", controllers.getDefenseById);
-
-router.get("/object/:id", controllers.getAttackById);
 
 router.post("/object", controllers.createAttack);
 
-router.put("/objects/:id", (req, res) => controllers.updateAttack);
+router.patch("/object/:id", controllers.updateAttack);
+
+router.get("/defense/:id", controllers.getDefenseById);
+
+router.get("/object/:id", controllers.getAttackById);
 
 // router.delete("objects/:id", controllers.deleteAttack);
 
