@@ -15,7 +15,9 @@ router.get("/object/:id", controllers.getAttackById);
 
 router.post("/object", controllers.createAttack);
 
-router.put("/objects/:id", (req, res) => controllers.updateAttack);
+router.post("/defense", controllers.createDefense);
+
+router.put("/object/:id", controllers.updateAttack);
 
 // router.delete("objects/:id", controllers.deleteAttack);
 

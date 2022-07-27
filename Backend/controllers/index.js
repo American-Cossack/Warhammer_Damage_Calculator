@@ -65,6 +65,18 @@ const createAttack = async (req, res) => {
   }
 };
 
+const createDefense = async (req, res) => {
+  try {
+    const missingDefense = await new Defend(req.body);
+    await missingDefense.save();
+    return res.status(201).json({
+      missingDefense,
+    });
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+};
+
 // update an existing object
 
 const updateAttack = async (req, res) => {
@@ -119,4 +131,5 @@ module.exports = {
   //   deleteAttack,
   getDefense,
   getDefenseById,
+  createDefense,
 };
