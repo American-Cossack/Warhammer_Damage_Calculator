@@ -79,57 +79,69 @@ const createDefense = async (req, res) => {
 
 // update an existing object
 
-const updateAttack = async (req, res) => {
-  try {
-    const update2Attack = await Attack.findByIdAndUpdate(
-      req.params.id,
-      req.body,
-      { new: true }
-    );
-    return res.status(200).json(update2Attack);
-  } catch (err) {
-    return res.status(500).json(err);
-  }
-};
 // const updateAttack = async (req, res) => {
 //   try {
-//     //making sure have right object
-//     const { id } = req.params;
-//     //creating a new object that is being updated via the body of the request
-
-//     const updatedAttack = await Attack.updateOne(req.body, {
-//       //targeting object by id
-//       where: { id: id },
-//       //sending back the updated version
-//       returning: true,
-//     });
-//     res.send(updatedAttack);
-//   } catch (error) {
-//     throw error;
+//     const update2Attack = await Attack.findByIdAndUpdate(
+//       req.params.id,
+//       req.body,
+//       { new: true }
+//     );
+//     return res.status(200).json(update2Attack);
+//   } catch (err) {
+//     return res.status(500).json(err);
 //   }
 // };
+const updateAttack = async (req, res) => {
+  try {
+    //making sure have right object
+    const { id } = req.params;
+    //creating a new object that is being updated via the body of the request
 
-// const deleteAttack = async (req, res) => {
-//   try {
-//     // make sure we are targeting the correct object
-//     const attackId = req.params.attackId;
-//     //how to destroy bojects
-//     await Attack.destroy({ where: { id: attackId } });
+    const updatedAttack = await Attack.findByIdAndUpdate({ _id: id }, req.body);
+    res.send(updatedAttack);
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-//     //success message
-//     res.send({ msg: `Object with ID ${attackId} deleted` });
-//   } catch (error) {
-//     throw error;
-//   }
-// };
+const deleteAttack = async (req, res) => {
+  try {
+    // make sure we are targeting the correct object
+    const { id } = req.params;
+    //how to destroy objects
+
+    const deletedAttack = await Attack.findByIdAndDelete({ _id: id });
+    res.send(deletedAttack);
+    //success message
+    // res.send({ msg: `Object with ID ${id} deleted` });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const deleteDefense = async (req, res) => {
+  try {
+    // make sure we are targeting the correct object
+    const { id } = req.params;
+    //how to destroy objects
+
+    const deletedDefend = await Defend.findByIdAndDelete({ _id: id });
+    res.send(deletedDefend);
+    //success message
+    // res.send({ msg: `Object with ID ${id} deleted` });
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 module.exports = {
   getAttacks,
   getAttackById,
   createAttack,
   updateAttack,
-  //   deleteAttack,
+  deleteAttack,
   getDefense,
   getDefenseById,
   createDefense,
+  deleteDefense,
 };

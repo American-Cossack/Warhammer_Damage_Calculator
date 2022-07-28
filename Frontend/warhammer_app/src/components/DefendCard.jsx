@@ -16,14 +16,16 @@ function DefendCard() {
     };
   
     const [formState, setFormState] = useState(intialState);
-
+ const handleChange = (event) => {
+        setFormState({ ...formState, [event.target.id]: event.target.value });
+      };
 
     useEffect(() => {
         const getDefend = async () => {
           try {
-            let res = await axios.get("http://localhost:3003/api/defense");
+            let res = await axios.get("http://localhost:3003/api/defense", formState);
             console.log(res.data.getDefend);
-            // setDefend(res.data.getDefend);
+            setDefend(res.data.getDefend);
           } catch (err) {
             console.log(err);
           }
@@ -31,17 +33,16 @@ function DefendCard() {
         getDefend();
       }, []);
     
-      const handleChange = (event) => {
-        setFormState({ ...formState, [event.target.id]: event.target.value });
-      };
+     
     
       // Event Handler: a callback function to
       // be run when the event is observed
-      const handleSubmit = (event) => {
+      const handleSubmit = async (event) => {
         // we always need to stop the browser
         // from submitting the form or the page
         // will be refreshed.
         event.preventDefault();
+        let res = await axios.post('http://localhost:3003/api/defense', formState)
         // do something with the data in the component state
         console.log(formState);
         // clear the form
@@ -59,6 +60,7 @@ function DefendCard() {
           <label htmlFor="Name">Name:</label>
           <input
             type="text"
+            placeholder="Space Marine"
             id="Name"
             onChange={handleChange}
             value={formState.Name}
@@ -67,6 +69,7 @@ function DefendCard() {
           <input
             type="number"
             id="T"
+            placeholder="4"
             onChange={handleChange}
             value={formState.T}
           />
@@ -74,11 +77,13 @@ function DefendCard() {
           <input
             type="number"
             id="Wounds"
+            placeholder="2"
             onChange={handleChange}
             value={formState.Wounds}
           />
           <label htmlFor="Save">Armor Save:</label>
-          <input type="number" id="Save" onChange={handleChange} value={formState.Save} />
+          <input type="number" placeholder="3"
+          id="Save" onChange={handleChange} value={formState.Save} />
           <label htmlFor="Inv_Save">Invulnerable Save:</label>
           <input
             type="number"
