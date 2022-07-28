@@ -42,6 +42,8 @@ router.delete("/object/:id", controllers.deleteAttack);
 
 router.delete("/object/:id", controllers.deleteDefense);
 
+router.get("/solution", controllers.toHit);
+
 module.exports = router;
 
 //routes in Back end= creating routes

@@ -1,5 +1,6 @@
 const Attack = require("../models/Attacker");
 const Defend = require("../models/Defender");
+
 const { db } = require("mongodb");
 const getAttacks = async (req, res) => {
   try {
@@ -134,6 +135,77 @@ const deleteDefense = async (req, res) => {
   }
 };
 
+const toHit = async (req, res) => {
+  try {
+    let A2 = await Attack.find({});
+    let A = A2[A2.length - 1];
+    // let A = await Attack.findById("62df0bcb9b789259878ef708");
+    let B2 = await Defend.find({});
+    let B = B2[B2.length - 1];
+    let woundRoll = "";
+    let semiProperBS = "";
+    let semiProperSave = "";
+    if (A.BS == 3) {
+      semiProperBS = 4;
+    } else if (A.BS == 2) {
+      semiProperBS = 5;
+    } else if (A.BS == 4) {
+      semiProperBS = 3;
+    } else if (A.BS == 5) {
+      semiProperBS = 2;
+    } else if (A.BS == 6) {
+      semiProperBS = 1;
+    }
+    if (B.Save == 3) {
+      semiProperSave = 2;
+    } else if (B.Save == 2) {
+      semiProperSave = 1;
+    } else if (B.Save == 4) {
+      semiProperSave = 3;
+    } else if (B.Save == 5) {
+      semiProperSave = 4;
+    } else if (B.Save == 6) {
+      semiProperSave = 5;
+    }
+
+    if (A.S > B.T) {
+      woundRoll = 4 / 6;
+    }
+    if (A.S >= B.T * 2) {
+      woundRoll = 5 / 6;
+    }
+    if (A.S === B.T) {
+      woundRoll = 3 / 6;
+    }
+    if (A.S < B.T) {
+      woundRoll = 2 / 6;
+    }
+    if (A.S * 2 <= B.T) {
+      woundRoll = 1 / 6;
+    }
+    const properSave = semiProperSave / 6 + A.AP / 6;
+    if (properSave >= 1) {
+      properSave = 1;
+    }
+    const properBS = semiProperBS / 6;
+    const toHitRoll = A.Shots_Number * properBS * woundRoll * properSave;
+    res.json(toHitRoll);
+    console.log(
+      A,
+      B,
+      A.S,
+      B.T,
+      A.Shots_Number,
+      properBS,
+      woundRoll,
+      properSave,
+      toHitRoll
+    );
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 module.exports = {
   getAttacks,
   getAttackById,
@@ -144,4 +216,5 @@ module.exports = {
   getDefenseById,
   createDefense,
   deleteDefense,
+  toHit,
 };
