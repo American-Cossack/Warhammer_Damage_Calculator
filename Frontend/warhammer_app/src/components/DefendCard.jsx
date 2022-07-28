@@ -41,7 +41,7 @@ function DefendCard() {
         // we always need to stop the browser
         // from submitting the form or the page
         // will be refreshed.
-        event.preventDefault();
+        // event.preventDefault();
         let res = await axios.post('http://localhost:3003/api/defense', formState)
         // do something with the data in the component state
         console.log(formState);

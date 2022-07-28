@@ -139,7 +139,6 @@ const toHit = async (req, res) => {
   try {
     let A2 = await Attack.find({});
     let A = A2[A2.length - 1];
-    // let A = await Attack.findById("62df0bcb9b789259878ef708");
     let B2 = await Defend.find({});
     let B = B2[B2.length - 1];
     let woundRoll = "";
