@@ -174,15 +174,14 @@ const toHit = async (req, res) => {
     if (invSave >= properSave) {
       invSave = 1;
     }
-    if (properSave > invSave) {
-      properSave = 1;
-    }
 
     if (invSave == 0) {
       invSave = 1;
     }
-
-    let fnp = B.FNP / 6;
+    if (properSave > invSave) {
+      properSave = 1;
+    }
+    let fnp = (B.FNP - 1) / 6;
 
     if (fnp == 0) {
       fnp = 1;
@@ -210,6 +209,8 @@ const toHit = async (req, res) => {
       properSave,
       invSave,
       woundDamage,
+      B.FNP,
+      fnp,
       toHitRoll
     );
   } catch (error) {
