@@ -7,13 +7,8 @@ const getAttacks = async (req, res) => {
     const getAttacks = await Attack.find({});
     console.log(getAttacks);
     return res.json({ getAttacks });
-    //interchangeable with above
-    // res.send(objects);
   } catch (error) {
-    //status 200 means worked
     return res.status(500).send(error.message);
-    //interchangeable with above
-    // throw error;
   }
 };
 
@@ -27,14 +22,12 @@ const getDefense = async (req, res) => {
   }
 };
 
-//creating Details / Show route
 const getAttackById = async (req, res) => {
   console.log(Attack);
   try {
     const { id } = req.params;
     const selectedAttacks = await Attack.findById(id);
     return res.status(200).json({ selectedAttacks });
-    // res.send(object);
   } catch (error) {
     throw error;
   }
@@ -78,25 +71,9 @@ const createDefense = async (req, res) => {
   }
 };
 
-// update an existing object
-
-// const updateAttack = async (req, res) => {
-//   try {
-//     const update2Attack = await Attack.findByIdAndUpdate(
-//       req.params.id,
-//       req.body,
-//       { new: true }
-//     );
-//     return res.status(200).json(update2Attack);
-//   } catch (err) {
-//     return res.status(500).json(err);
-//   }
-// };
 const updateAttack = async (req, res) => {
   try {
-    //making sure have right object
     const { id } = req.params;
-    //creating a new object that is being updated via the body of the request
 
     const updatedAttack = await Attack.findByIdAndUpdate({ _id: id }, req.body);
     res.send(updatedAttack);
@@ -107,14 +84,10 @@ const updateAttack = async (req, res) => {
 
 const deleteAttack = async (req, res) => {
   try {
-    // make sure we are targeting the correct object
     const { id } = req.params;
-    //how to destroy objects
 
     const deletedAttack = await Attack.findByIdAndDelete({ _id: id });
     res.send(deletedAttack);
-    //success message
-    // res.send({ msg: `Object with ID ${id} deleted` });
   } catch (error) {
     console.log(error);
   }
@@ -122,14 +95,10 @@ const deleteAttack = async (req, res) => {
 
 const deleteDefense = async (req, res) => {
   try {
-    // make sure we are targeting the correct object
     const { id } = req.params;
-    //how to destroy objects
 
     const deletedDefend = await Defend.findByIdAndDelete({ _id: id });
     res.send(deletedDefend);
-    //success message
-    // res.send({ msg: `Object with ID ${id} deleted` });
   } catch (error) {
     console.log(error);
   }
