@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import AttackCard from "./components/AttackCard";
 import DefendCard from "./components/DefendCard";
-import SolutionCard from "./components/SolutionCard";
 
 function App() {
   const [solutions, setSolutions] = useState([]);

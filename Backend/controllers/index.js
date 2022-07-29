@@ -113,6 +113,7 @@ const toHit = async (req, res) => {
     let woundRoll = "";
     let semiProperBS = "";
     let semiProperSave = "";
+    let semiInvSave = "";
     if (A.BS == 3) {
       semiProperBS = 4;
     } else if (A.BS == 2) {
@@ -168,7 +169,7 @@ const toHit = async (req, res) => {
       properSave = 1;
     }
 
-    let invSave = B.Inv_Save / 6;
+    let invSave = semiInvSave / 6;
 
     if (invSave >= properSave) {
       invSave = 1;
@@ -180,6 +181,12 @@ const toHit = async (req, res) => {
     if (invSave == 0) {
       invSave = 1;
     }
+
+    let fnp = B.FNP / 6;
+
+    if (fnp == 0) {
+      fnp = 1;
+    }
     let properBS = semiProperBS / 6;
 
     let woundDamage = A.Damage;
@@ -189,7 +196,8 @@ const toHit = async (req, res) => {
       woundRoll *
       properSave *
       invSave *
-      woundDamage;
+      woundDamage *
+      fnp;
     res.json(toHitRoll);
     console.log(
       A,
