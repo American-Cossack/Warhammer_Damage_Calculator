@@ -1,6 +1,3 @@
-// forms, header stuff etc.
-
-//front end routes, click a nav link and go to that form
 
 
 import React, { useState, useEffect } from "react";
@@ -40,28 +37,20 @@ function AttackCard() {
       setFormState({ ...formState, [event.target.id]: event.target.value });
     };
   
-    // Event Handler: a callback function to
-    // be run when the event is observed
+
     const handleSubmit = async (event) => {
-      // we always need to stop the browser
-      // from submitting the form or the page
-      // will be refreshed.
+
       event.preventDefault();
       let res = await axios.post('http://localhost:3003/api/object', formState)
       console.log(res.data)
-      
-      // do something with the data in the component state
+
       console.log(formState);
-      // clear the form
+
       setFormState(intialState);
       
     };
   
-    // Event Listener: tells the browser
-    // which event to listen for on which
-    // element and what to do when the event
-    // happens
-  
+
     //...
     return (
       <p>

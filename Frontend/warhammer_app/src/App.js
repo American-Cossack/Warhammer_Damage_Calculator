@@ -29,9 +29,11 @@ function App() {
       <h1>Warhammer Damage Calculator:</h1>
       <AttackCard />
       <DefendCard />
+
       <div key="Solution">
         <h2>Average Wounds Dealt: {solutions}</h2>
       </div>
+
       {/* <SolutionCard /> */}
       {/* {attacks.map((attack) => (
         <div key={attack.Name} class="CommentBox">
