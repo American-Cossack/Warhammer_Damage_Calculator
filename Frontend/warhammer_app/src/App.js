@@ -30,6 +30,7 @@ function App() {
       <div key="Solution">
         <h2>Average Wounds Dealt: {solutions}</h2>
       </div>
+      <h4>Knowledge is power. Guard it well.</h4>
     </div>
   );
 }
