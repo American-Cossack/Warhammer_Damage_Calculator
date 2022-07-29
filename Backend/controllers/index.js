@@ -183,7 +183,7 @@ const toHit = async (req, res) => {
     }
     let fnp = (B.FNP - 1) / 6;
 
-    if (fnp == 0) {
+    if (fnp <= 0) {
       fnp = 1;
     }
     let properBS = semiProperBS / 6;
