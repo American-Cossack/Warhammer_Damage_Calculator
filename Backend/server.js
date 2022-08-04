@@ -3,6 +3,7 @@ const routes = require("./routes");
 const db = require("./db");
 const cors = require("cors");
 const controllers = require("./controllers");
+
 // require() imports and middleware here ^ ///////
 
 const PORT = process.env.PORT || 3003;
@@ -15,7 +16,7 @@ app.use(cors({ credentials: true, origin: true }));
 app.options("*", cors());
 
 app.use(express.json());
-app.use(express.static(`${__dirname}/client/build`));
+app.use(express.static(`${__WARHAMMER_DAMAGE_CALCULATOR}/client/build`));
 
 // app.use() middleware here ^ ///////////////////
 app.get("/attack", controllers.getAttacks);
@@ -25,6 +26,6 @@ app.use("/api", routes);
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 app.get("/*", (req, res) => {
-  res.sendFile(`${__dirname}/client/build/index.html`);
+  res.sendFile(`${__WARHAMMER_DAMAGE_CALCULATOR}/client/build/index.html`);
 });
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
