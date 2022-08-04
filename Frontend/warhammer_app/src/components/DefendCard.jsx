@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
+import { BASE_URL } from "../global";
 
 
 function DefendCard() {
@@ -23,7 +23,7 @@ function DefendCard() {
     useEffect(() => {
         const getDefend = async () => {
           try {
-            let res = await axios.get("http://localhost:3003/api/defense", formState);
+            let res = await axios.get(`${BASE_URL}/api/defense`, formState);
             console.log(res.data.getDefend);
             setDefend(res.data.getDefend);
           } catch (err) {
@@ -38,7 +38,7 @@ function DefendCard() {
       const handleSubmit = async (event) => {
 
         event.preventDefault();
-        let res = await axios.post('http://localhost:3003/api/defense', formState)
+        let res = await axios.post(`${BASE_URL}/api/defense`, formState)
 
         console.log(formState);
 

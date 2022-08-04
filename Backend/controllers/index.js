@@ -189,6 +189,12 @@ const toHit = async (req, res) => {
     let properBS = semiProperBS / 6;
 
     let woundDamage = A.Damage;
+    let woundTotal = B.Wounds;
+
+    if (woundDamage > woundTotal) {
+      woundDamage = woundTotal;
+    }
+
     const toHitRoll =
       A.Shots_Number *
       properBS *

@@ -4,13 +4,14 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import AttackCard from "./components/AttackCard";
 import DefendCard from "./components/DefendCard";
+import { BASE_URL } from "./global";
 
 function App() {
   const [solutions, setSolutions] = useState([]);
   useEffect(() => {
     const getSolutions = async () => {
       try {
-        let res = await axios.get("http://localhost:3003/api/solution");
+        let res = await axios.get(`${BASE_URL}/api/solution`);
         console.log(res.data);
         setSolutions(res.data);
       } catch (err) {

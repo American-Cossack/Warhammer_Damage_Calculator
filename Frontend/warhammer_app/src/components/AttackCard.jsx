@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { BASE_URL } from "../global";
 
 
 
@@ -22,7 +23,7 @@ function AttackCard() {
     useEffect(() => {
       const getAttacks = async () => {
         try {
-          let res = await axios.get("http://localhost:3003/api/object");
+          let res = await axios.get(`${BASE_URL}/api/object`);
           console.log(res.data.getAttacks);
           setAttacks(res.data.getAttacks);
         } catch (err) {
@@ -41,7 +42,7 @@ function AttackCard() {
     const handleSubmit = async (event) => {
 
       event.preventDefault();
-      let res = await axios.post('http://localhost:3003/api/object', formState)
+      let res = await axios.post(`${BASE_URL}/api/object`, formState)
       console.log(res.data)
 
       console.log(formState);
