@@ -15,7 +15,7 @@
     "web-vitals": "^2.1.4"
   },
   "build": "cd client && rm -rf build && npm install && npm run build",
-  "proxy": "http://localhost:3003",
+  // "proxy": "http://localhost:3003",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
