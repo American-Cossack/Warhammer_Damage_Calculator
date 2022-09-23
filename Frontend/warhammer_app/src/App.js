@@ -24,14 +24,16 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Warhammer Damage Calculator:</h1>
-      <AttackCard />
-      <DefendCard />
+      <div className="items-grid">
+        <h1>Warhammer Damage Calculator:</h1>
+        <AttackCard />
+        <DefendCard />
 
-      <div key="Solution">
-        <h2>Average Wounds Dealt: {solutions}</h2>
+        <div key="Solution">
+          <h2>Average Wounds Dealt: {solutions}</h2>
+        </div>
+        <h4>Knowledge is power. Guard it well.</h4>
       </div>
-      <h4>Knowledge is power. Guard it well.</h4>
     </div>
   );
 }
