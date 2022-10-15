@@ -22,6 +22,10 @@ function App() {
   }, []);
   console.log(solutions);
 
+  function refreshPage() {
+    window.location.reload(false);
+  }
+
   return (
     <div className="App">
       <div className="items-grid">
@@ -30,7 +34,9 @@ function App() {
         <DefendCard />
 
         <div key="Solution">
-          <h2>Average Wounds Dealt: {solutions}</h2>
+          <h2>Average Wounds Dealt:</h2>
+          <h3 className="slt">{solutions}</h3>
+          <button onClick={refreshPage}>Submit Results</button>
         </div>
         <h4>Knowledge is power. Guard it well.</h4>
       </div>

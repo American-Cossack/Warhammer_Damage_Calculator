@@ -56,7 +56,7 @@ function AttackCard() {
     return (
       <p>
         <form onSubmit={handleSubmit}>
-          <label htmlFor="Name">Name:</label>
+          <label htmlFor="Name"> Name: </label>
           <input
             placeholder="Bolter"
             type="text"
@@ -64,7 +64,7 @@ function AttackCard() {
             onChange={handleChange}
             value={formState.Name}
           />
-          <label htmlFor="Shots_Number">Number of Shots:</label>
+          <label htmlFor="Shots_Number"> Number of Shots: </label>
           <input
             type="number"
             placeholder="2"
@@ -72,7 +72,7 @@ function AttackCard() {
             onChange={handleChange}
             value={formState.Shots_Number}
           />
-          <label htmlFor="BS">Ballistic Skill:</label>
+          <label htmlFor="BS"> Ballistic Skill: </label>
           <input
             type="number"
             placeholder="3"
@@ -80,7 +80,7 @@ function AttackCard() {
             onChange={handleChange}
             value={formState.BS}
           />
-          <label htmlFor="AP">Strength:</label>
+          <label htmlFor="AP"> Strength: </label>
           <input
             type="number"
             placeholder="4"
@@ -88,7 +88,7 @@ function AttackCard() {
             onChange={handleChange}
             value={formState.S}
           />
-          <label htmlFor="message">Armor Piercing:</label>
+          <label htmlFor="message"> Armor Piercing: </label>
           <input
             type="number"
             placeholder="1"
@@ -96,7 +96,7 @@ function AttackCard() {
             onChange={handleChange}
             value={formState.AP}
           />
-          <label htmlFor="Damage">Damage</label>
+          <label htmlFor="Damage"> Damage: </label>
           <input
             type="number"
             placeholder="1"

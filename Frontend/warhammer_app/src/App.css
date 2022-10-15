@@ -14,14 +14,19 @@
     justify-items: center;
     align-items: center;
     border: 7px solid #07173d;
-    outline: 5px solid #f9763d;
+    outline: 5px solid #f7bb44;
     border-radius: 1rem 1rem 1rem;
     background-color: rgba(204, 204, 197, 0.7);
     height: 425px;
     width: 90%;
-    margin-left: 15px;
-    margin-top: -15px;}
+    margin-left: 85px;
+    margin-top: -40px;
+    font-family: 'Playfair Display SC', serif;
+  }
     
+.cursor{background-color: #111;
+height: 32px;
+width: 32px;}
 #h1 {
   font-family: 'Cinzel', serif;
 
@@ -58,7 +63,11 @@ img {
 .App-link {
   color: #61dafb;
 }
-
+.slt{display: grid;
+  grid-template-rows: 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+  }
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

@@ -48,7 +48,7 @@ function DefendCard() {
 
       return (
         <form onSubmit={handleSubmit}>
-          <label htmlFor="Name">Name:</label>
+          <label htmlFor="Name"> Name: </label>
           <input
             type="text"
             placeholder="Space Marine"
@@ -56,7 +56,7 @@ function DefendCard() {
             onChange={handleChange}
             value={formState.Name}
           />
-          <label htmlFor="T">Toughness:</label>
+          <label htmlFor="T"> Toughness: </label>
           <input
             type="number"
             id="T"
@@ -64,7 +64,7 @@ function DefendCard() {
             onChange={handleChange}
             value={formState.T}
           />
-          <label htmlFor="Wounds">Wounds:</label>
+          <label htmlFor="Wounds"> Wounds: </label>
           <input
             type="number"
             id="Wounds"
@@ -72,17 +72,17 @@ function DefendCard() {
             onChange={handleChange}
             value={formState.Wounds}
           />
-          <label htmlFor="Save">Armor Save:</label>
+          <label htmlFor="Save"> Armor Save: </label>
           <input type="number" placeholder="3"
           id="Save" onChange={handleChange} value={formState.Save} />
-          <label htmlFor="Inv_Save">Invulnerable Save:</label>
+          <label htmlFor="Inv_Save"> Invulnerable Save: </label>
           <input
             type="number"
             id="Inv_Save"
             onChange={handleChange}
             value={formState.Inv_Save}
           />
-          <label htmlFor="FNP">Feel no Pain:</label>
+          <label htmlFor="FNP"> Feel no Pain: </label>
           <input
             type="number"
             id="FNP"
