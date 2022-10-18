@@ -5,7 +5,7 @@ import { BASE_URL } from "../global";
 
 
 function DefendCard() {
-    const [defend, setDefend] = useState([]);
+    const [ ,setDefend] = useState([]);
     const intialState = {
       Name: ``,
       T: ``,
@@ -24,21 +24,21 @@ function DefendCard() {
         const getDefend = async () => {
           try {
             let res = await axios.get(`${BASE_URL}/api/defense`, formState);
-            console.log(res.data.getDefend);
+            // console.log(res.data.getDefend);
             setDefend(res.data.getDefend);
           } catch (err) {
             console.log(err);
           }
         };
         getDefend();
-      }, []);
+      }, );
     
      
     
       const handleSubmit = async (event) => {
 
         event.preventDefault();
-        let res = await axios.post(`${BASE_URL}/api/defense`, formState)
+        await axios.post(`${BASE_URL}/api/defense`, formState)
 
         console.log(formState);
 

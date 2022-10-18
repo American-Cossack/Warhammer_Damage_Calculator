@@ -8,7 +8,7 @@ import { BASE_URL } from "../global";
 
 
 function AttackCard() {
-    const [attacks, setAttacks] = useState([]);
+    const [ ,setAttacks] = useState([]);
     const intialState = {
       Name: ``,
       Shots_Number: ``,
@@ -24,7 +24,7 @@ function AttackCard() {
       const getAttacks = async () => {
         try {
           let res = await axios.get(`${BASE_URL}/api/object`);
-          console.log(res.data.getAttacks);
+          // console.log(res.data.getAttacks);
           setAttacks(res.data.getAttacks);
         } catch (err) {
           console.log(err);
@@ -52,7 +52,6 @@ function AttackCard() {
     };
   
 
-    //...
     return (
       <p>
         <form onSubmit={handleSubmit}>
