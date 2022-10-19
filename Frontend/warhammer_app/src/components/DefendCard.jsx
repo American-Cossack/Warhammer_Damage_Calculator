@@ -24,7 +24,6 @@ function DefendCard() {
         const getDefend = async () => {
           try {
             let res = await axios.get(`${BASE_URL}/api/defense`, formState);
-            // console.log(res.data.getDefend);
             setDefend(res.data.getDefend);
           } catch (err) {
             console.log(err);
